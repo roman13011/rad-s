@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { resolve } from "$app/paths";
 	import { onMount } from "svelte";
-	import { browser } from "$app/environment";
-    import { radioUrls } from "../constants"; 
+    import { radioUrls } from "../../constants"; 
 
 	let isLoading = false;
 	const VOLUME_KEY = "radio-volume";
@@ -68,6 +67,7 @@
 	let volume = 0.1;
 
 	onMount(() => {
+		console.log("mounted")
 		const saved = localStorage.getItem(VOLUME_KEY);
 		if (saved !== null) {
 			const parsed = parseFloat(saved);
