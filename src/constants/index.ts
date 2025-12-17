@@ -1,3 +1,5 @@
+import { radioRecordStationsStr } from "./radioRecordStations";
+
 enum Languages {
     ES = "es",
     US = "us",
@@ -16,9 +18,35 @@ export const radioUrls = [
     { url: "https://pub0201.101.ru/stream/air/aac/64/219?624e", name: "Like fm", language: Languages.RU },
     { url: "https://europaplus.hostingradio.ru:8014/europaplus320.mp3?a8fc0b8a", name: "Европа плюс", language: Languages.RU },
     { url: "https://pub0201.101.ru/stream/air/aac/64/99?0df4", name: "Energy", language: Languages.RU },
-
-
-
 ];
 //  { url: "", name: "", language: Languages. },
 
+
+
+
+
+function parseM3U(m3uString: string) {
+    const lines = m3uString
+        .split("\n")
+        .map(line => line.trim())
+        .filter(Boolean);
+
+    const result = [];
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        if (line.startsWith("#EXTINF")) {
+            const name = line.split(",").slice(1).join(",").trim();
+            const url = lines[i + 1];
+
+            if (url && !url.startsWith("#")) {
+                result.push({ name, url });
+            }
+        }
+    }
+
+    return result;
+}
+
+radioUrls.push(...parseM3U(radioRecordStationsStr).map(({ name, url }) => ({ name, url, language: Languages.RU })));

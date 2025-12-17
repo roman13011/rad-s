@@ -2,7 +2,7 @@
 	import { resolve } from "$app/paths";
 	import { onMount } from "svelte";
 	import { browser } from "$app/environment";
-    import { radioUrls } from "../constants"; 
+	import { radioUrls } from "../constants";
 
 	let isLoading = false;
 	const VOLUME_KEY = "radio-volume";
@@ -10,12 +10,10 @@
 	let sliderVisible = false;
 	let slider: HTMLInputElement;
 
-
 	// Функция для установки потока
 	function playRadio(url: string) {
 		if (!audioElement) return;
 		// URL потока
-		
 
 		// Показать лоадер
 		isLoading = true;
@@ -47,7 +45,6 @@
 			audioElement.load(); // ❗ сбрасывает состояние
 		}
 	}
-
 
 	function updateVolume(event: Event) {
 		const target = event.target as HTMLInputElement;
@@ -96,13 +93,16 @@
 		make your own by typing the following into your command line and following
 		the prompts:
 	</p>
-	{#each radioUrls as radio}
-		<button
-			on:click={() => playRadio(radio.url)}
-			class="bg-red-200 p-2 my-2 rounded-xl cursor-pointer"
-			>{radio.name}</button
-		>
-	{/each}
+
+	<div class="max-h-[70vh] overflow-y-auto flex flex-col">
+		{#each radioUrls as radio}
+			<button
+				on:click={() => playRadio(radio.url)}
+				class="bg-red-200 p-2 my-2 rounded-xl cursor-pointer"
+				>{radio.name}</button
+			>
+		{/each}
+	</div>
 	<button
 		on:click={stopRadio}
 		class="bg-gray-300 p-2 my-2 rounded-xl cursor-pointer"
@@ -142,8 +142,7 @@
     [&::-moz-range-thumb]:rounded-full
     [&::-moz-range-thumb]:bg-blue-500
 	slider {sliderVisible ? '' : 'slider-hidden'}"
-	bind:this={slider}
-
+		bind:this={slider}
 	/>
 
 	<pre>npx sv create</pre>
@@ -160,7 +159,6 @@
 		data loading and form handling. Try using it with JavaScript disabled!
 	</p>
 </div>
-
 
 <style>
 	/* Скрываем ползунок */
