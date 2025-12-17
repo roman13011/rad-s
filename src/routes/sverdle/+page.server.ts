@@ -56,7 +56,7 @@ export const actions = {
 		const data = await request.formData();
 		const guess = data.getAll('guess') as string[];
 
-		if (!game.enter("guess")) {
+		if (!game.enter(guess)) {
 			return fail(400, { badGuess: true });
 		}
 
