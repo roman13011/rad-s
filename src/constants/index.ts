@@ -14,12 +14,13 @@ export const radioUrls = [
     { url: "https://dfm.hostingradio.ru/dfm96.aacp", name: "Dfm", language: Languages.RU },
     { url: "https://hitfm.hostingradio.ru/hitfm96.aacp", name: "Hit fm", language: Languages.RU },
     { url: "https://maximum.hostingradio.ru/maximum96.aacp", name: "Maximum", language: Languages.RU },
-    { url: "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=AD14C80B4F2B5F07A587AAA355BE7A60", name: "Love сессионный", language: Languages.RU },
+    { url: "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=77EE666084E1734A43CA684F21803511", name: "Love сессионный", language: Languages.RU },
     { url: "https://pub0201.101.ru/stream/air/aac/64/219?624e", name: "Like fm", language: Languages.RU },
     { url: "https://europaplus.hostingradio.ru:8014/europaplus320.mp3?a8fc0b8a", name: "Европа плюс", language: Languages.RU },
     { url: "https://pub0201.101.ru/stream/air/aac/64/99?0df4", name: "Energy", language: Languages.RU },
 ];
 //  { url: "", name: "", language: Languages. },
+
 
 
 
